@@ -18,11 +18,21 @@ include_directories(
     ${SDL2_INCLUDE_DIR}        
     ${OGRE_INCLUDE_DIRS}/OGRE/
     ${OGRE_INCLUDE_DIRS}/OGRE/Overlay
+	${OGRE_INCLUDE_DIR}/Hlms/Unlit
+	${OGRE_INCLUDE_DIR}/Hlms/Common
+	${OGRE_INCLUDE_DIR}/Hlms/Pbs
 )
 
 add_recursive( ./ SOURCE_FILES )
 
 ogre_add_executable(main WIN32 ${SOURCE_FILES})
 
-target_link_libraries(main ${OGRE_LIBRARIES} ${OGRE_SAMPLES_LIBRARIES})
+target_link_libraries(
+	main 
+    ${OGRE_LIBRARIES} 
+	${OGRE_Overlay_LIBRARIES}
+	${OGRE_HlmsPbs_LIBRARIES}
+	${OGRE_HlmsUnlit_LIBRARIES}
+    ${SDL2_LIBRARY}
+)
 
