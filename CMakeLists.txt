@@ -7,3 +7,5 @@ set(CMAKE_MODULE_PATH
 )
 include(OgreAddTargets)
 add_subdirectory(src)
+
+
