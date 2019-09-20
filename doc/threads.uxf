@@ -12,7 +12,7 @@
     <panel_attributes>fg=#2a44a0
 bg=white
 transparency=0
-main
+*main*
 --
 renderThreadApp
   graphicsSystem-&gt;beginFrameParallel();
@@ -33,7 +33,7 @@ renderThreadApp
     </coordinates>
     <panel_attributes>fg=#2a44a0
 transparency=0
-main
+*main*
 --
 logicThread
   logicSystem-&gt;beginFrameParallel();
@@ -95,7 +95,7 @@ void finishFrame(void);
     </coordinates>
     <panel_attributes>fg=#2a44a0
 transparency=0
-LogicSystem
+*LogicSystem*
 --
 
 void processIncomingMessage()
@@ -132,7 +132,7 @@ fg=#2a44a0</panel_attributes>
     </coordinates>
     <panel_attributes>fg=#2aa037
 transparency=0
-LogicGameState
+*LogicGameState*
 --
 
 
@@ -163,7 +163,7 @@ fg=cyan</panel_attributes>
     </coordinates>
     <panel_attributes>fg=#2a44a0
 transparency=0
-MessageQueueSystem
+*MessageQueueSystem*
 --
 
 processIncomingMessages(){
@@ -217,7 +217,7 @@ lt=&lt;.
     </coordinates>
     <panel_attributes>fg=#2aa037
 transparency=0
-GameState
+*GameState*
 --
 
 void finishFrameParallel(void){}
@@ -354,7 +354,7 @@ layer=-2</panel_attributes>
     </coordinates>
     <panel_attributes>fg=#2a44a0
 transparency=0
-BaseSystem
+*BaseSystem*
 --
 
 void beginFrameParallel(void);
@@ -378,7 +378,7 @@ void finishFrame(void);
     </coordinates>
     <panel_attributes>fg=#2a44a0
 transparency=0
-GraphicSystem
+*GraphicSystem*
 --
 
 void processIncomingMessage()
@@ -427,7 +427,7 @@ fg=cyan</panel_attributes>
     </coordinates>
     <panel_attributes>fg=#2aa037
 transparency=0
-GraphicsGameState
+*GraphicsGameState*
 --
 
 
@@ -449,7 +449,7 @@ void update(float timeSinceLast)
     </coordinates>
     <panel_attributes>fg=#2a44a0
 transparency=0
-MessageQueueSystem
+*MessageQueueSystem*
 --
 
 processIncomingMessages(){
@@ -515,7 +515,7 @@ lt=&lt;.
     </coordinates>
     <panel_attributes>fg=#2aa037
 transparency=0
-GameState
+*GameState*
 --
 
 void finishFrameParallel(void){}
@@ -549,7 +549,7 @@ fg=#2aa037
     </coordinates>
     <panel_attributes>fg=#2aa037
 transparency=0
-TutorialGameState
+*TutorialGameState*
 --
 
 void finishFrameParallel(void){}
