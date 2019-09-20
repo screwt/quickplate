@@ -12,4 +12,4 @@
 
 ## Graph call
 
-![alt text](https://raw.githubusercontent.com/screwt/quickplate/develop/doc/threads.svg)
+![alt text](doc/threads.svg?raw=true "graph")
