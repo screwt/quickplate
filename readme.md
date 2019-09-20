@@ -12,5 +12,5 @@
 
 ## Graph call
 
-![alt text](https://raw.githubusercontent.com/screwt/quickplate/develop/doc/threads.svg)
-<img src="https://raw.githubusercontent.com/screwt/quickplate/develop/doc/threads.svg">
+![alt text](https://raw.githubusercontent.com/screwt/quickplate/develop/doc/threads.svg?sanitize=true)
+<img src="https://raw.githubusercontent.com/screwt/quickplate/develop/doc/threads.svg?sanitize=true">
