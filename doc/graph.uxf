@@ -1,0 +1,1520 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>3</zoom_level>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>249</x>
+      <y>0</y>
+      <w>1164</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>main.cpp
+--
+halign=left
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>339</x>
+      <y>36</y>
+      <w>84</w>
+      <h>297</h>
+    </coordinates>
+    <panel_attributes>logicThread
+--
+halign=left
+
+logicSystem-&gt;initialize()
+barrier-&gt;sync();
+
+
+logicSystem-&gt;createScene01();
+barrier-&gt;sync();
+
+logicSystem-&gt;createScene02();
+barrier-&gt;sync();
+
+
+
+while( !graphicsSystem-&gt;getQuit() )
+  logicSystem-&gt;beginFrameParallel();
+--
+  logicSystem-&gt;update();
+  
+--
+  logicSystem-&gt;finishFrameParallel();
+  
+--
+  logicSystem-&gt;finishFrame();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+barrier-&gt;sync();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>699</x>
+      <y>36</y>
+      <w>99</w>
+      <h>294</h>
+    </coordinates>
+    <panel_attributes>renderThread
+--
+halign=left
+renderThreadApp()
+
+graphicsSystem-&gt;initialize( "..." );
+barrier-&gt;sync();
+
+graphicsSystem-&gt;createScene01();
+barrier-&gt;sync();
+
+graphicsSystem-&gt;createScene02();
+barrier-&gt;sync();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+while( !graphicsSystem-&gt;getQuit() )
+--
+  graphicsSystem-&gt;beginFrameParallel();
+  
+--
+  graphicsSystem-&gt;update( timeSinceLast );
+
+
+
+
+  
+  
+--
+  graphicsSystem-&gt;finishFrameParallel();
+
+
+
+barrier-&gt;sync();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>321</x>
+      <y>21</y>
+      <w>390</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>1280.0;50.0;1280.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>315</x>
+      <y>27</y>
+      <w>36</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>100.0;30.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>255</x>
+      <y>9</y>
+      <w>75</w>
+      <h>345</h>
+    </coordinates>
+    <panel_attributes>mainThread
+--
+halign=left
+
+launch thread: renderThread
+launch thread: logicThread
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+waitForThreads()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>381</x>
+      <y>60</y>
+      <w>162</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>sync
+lt=-</panel_attributes>
+    <additional_attributes>10.0;20.0;520.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>381</x>
+      <y>75</y>
+      <w>180</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>sync
+lt=-</panel_attributes>
+    <additional_attributes>10.0;20.0;580.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>381</x>
+      <y>87</y>
+      <w>165</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>sync
+lt=-</panel_attributes>
+    <additional_attributes>10.0;20.0;530.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>378</x>
+      <y>297</y>
+      <w>204</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>sync
+lt=-</panel_attributes>
+    <additional_attributes>10.0;20.0;660.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>309</x>
+      <y>333</y>
+      <w>36</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;30.0;100.0;30.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>309</x>
+      <y>327</y>
+      <w>408</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;1340.0;70.0;1340.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>426</x>
+      <y>99</y>
+      <w>105</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>BaseSystem.cpp
+--
+halign=left
+
+this-&gt;processIncomingMessages();
+--
+mCurrentGameState-&gt;update( timeSinceLast );
+
+--
+mCurrentGameState-&gt;finishFrameParallel();
+this-&gt;flushQueuedMessages();
+--
+mCurrentGameState-&gt;finishFrame();</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>801</x>
+      <y>186</y>
+      <w>111</w>
+      <h>129</h>
+    </coordinates>
+    <panel_attributes>BaseSystem.cpp
+--
+halign=left
+
+this-&gt;processIncomingMessages();
+
+--
+mCurrentGameState-&gt;update( timeSinceLast );
+
+
+
+
+
+
+--
+mCurrentGameState-&gt;finishFrameParallel();
+this-&gt;flushQueuedMessages();
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>603</x>
+      <y>99</y>
+      <w>87</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>LogicGameState.cpp
+--
+halign=left
+
+
+--
+update()
+  mCubeEntity-&gt;mTransform[currIdx]-&gt;vPos
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>915</x>
+      <y>186</y>
+      <w>111</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>GraphicGameState.cpp
+--
+halign=left
+
+
+
+--
+...
+mGraphicsSystem-&gt;updateGameEntities()
+
+
+
+
+
+TutorialGameState::update( timeSinceLast );
+...
+
+
+--
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>1140</x>
+      <y>186</y>
+      <w>111</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>TutroalGameState.cpp
+--
+halign=left
+
+
+
+--
+
+
+
+
+  
+  
+  ..
+--
+
+update()
+  ..
+  mDebugText-&gt;setCaption( finalText );
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>1029</x>
+      <y>186</y>
+      <w>108</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>GraphicsSystem.cpp
+--
+halign=left
+
+processIncomingMessage()
+*    mCurrentTransformIdx = newIdx;*
+--
+
+mSceneManager-&gt;executeUserScalableTask(
+    this, true );
+execute()
+  gEnt-&gt;mSceneNode-&gt;setPosition(
+              interpVec );
+
+--
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>534</x>
+      <y>99</y>
+      <w>66</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>LogicSystem.cpp
+--
+halign=left
+
+processIncomingMessage()
+--
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>633</x>
+      <y>318</y>
+      <w>57</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>510</y>
+      <w>78</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+BaseSystem
+--
+
+void beginFrameParallel(void);
+--
+void update( float timeSinceLast );
+--
+void finishFrameParallel(void);
+--
+void finishFrame(void);
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>246</x>
+      <y>591</y>
+      <w>81</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+GraphicSystem
+--
+
+void processIncomingMessage()
+--
+void update( float timeSinceLast );
+
+
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>459</x>
+      <y>591</y>
+      <w>81</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+LogicSystem
+--
+
+void processIncomingMessage()
+--
+void finishFrameParallel(void);
+--
+void update( float timeSinceLast )
+
+
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>291</x>
+      <y>558</y>
+      <w>108</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2a44a0</panel_attributes>
+    <additional_attributes>340.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>393</x>
+      <y>558</y>
+      <w>102</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2a44a0</panel_attributes>
+    <additional_attributes>10.0;10.0;320.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>594</y>
+      <w>27</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-
+fg=cyan</panel_attributes>
+    <additional_attributes>70.0;10.0;50.0;10.0;50.0;130.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>345</x>
+      <y>591</y>
+      <w>81</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+GraphicsGameState
+--
+
+
+
+--
+void update(float timeSinceLast)
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>585</x>
+      <y>591</y>
+      <w>81</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+LogicGameState
+--
+
+
+
+void update(float timeSinceLast)
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>537</x>
+      <y>594</y>
+      <w>54</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>lt=-
+fg=cyan</panel_attributes>
+    <additional_attributes>160.0;10.0;40.0;10.0;40.0;150.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>435</y>
+      <w>72</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+MessageQueueSystem
+--
+
+processIncomingMessages(){
+  processIncomingMessage()
+}
+
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>447</y>
+      <w>24</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>20.0;10.0;60.0;10.0;60.0;260.0;10.0;260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>483</y>
+      <w>9</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>228</x>
+      <y>453</y>
+      <w>138</w>
+      <h>159</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>440.0;10.0;10.0;10.0;10.0;510.0;60.0;510.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>429</x>
+      <y>450</y>
+      <w>36</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0;70.0;520.0;100.0;520.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>423</x>
+      <y>528</y>
+      <w>21</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;300.0;50.0;300.0;50.0;10.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>585</x>
+      <y>435</y>
+      <w>81</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+GameState
+--
+
+void finishFrameParallel(void){}
+--
+void finishFrame(void) {}
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>624</x>
+      <y>480</y>
+      <w>9</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;370.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>543</y>
+      <w>159</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2aa037
+</panel_attributes>
+    <additional_attributes>510.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>507</x>
+      <y>498</y>
+      <w>81</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+TutorialGameState
+--
+
+void finishFrameParallel(void){}
+
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>480</y>
+      <w>81</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>250.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>528</y>
+      <w>33</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;280.0;30.0;280.0;30.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>435</x>
+      <y>552</y>
+      <w>156</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>500.0;210.0;430.0;210.0;430.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>447</y>
+      <w>165</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>530.0;10.0;100.0;10.0;100.0;300.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>453</y>
+      <w>165</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>530.0;10.0;120.0;10.0;120.0;300.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>534</y>
+      <w>129</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>410.0;260.0;370.0;260.0;370.0;140.0;10.0;140.0;10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>216</x>
+      <y>1083</y>
+      <w>111</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+bg=white
+transparency=0
+main
+--
+renderThreadApp
+  graphicsSystem-&gt;beginFrameParallel();
+  --
+  graphicsSystem-&gt;update( timeSinceLast );
+  --
+  graphicsSystem-&gt;finishFrameParallel();
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>213</x>
+      <y>819</y>
+      <w>81</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+main
+--
+logicThread
+  logicSystem-&gt;beginFrameParallel();
+  --
+  logicSystem-&gt;update(cFrametime);
+  --
+  logicSystem-&gt;finishFrameParallel();
+  --
+  logicSystem-&gt;finishFrame();
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>204</x>
+      <y>804</y>
+      <w>399</w>
+      <h>258</h>
+    </coordinates>
+    <panel_attributes>LogicThread
+--
+halign=left
+bg=#e1ffe7
+
+layer=-2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>918</y>
+      <w>78</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+*BaseSystem*
+--
+
+void beginFrameParallel(void);
+--
+void update( float timeSinceLast );
+--
+void finishFrameParallel(void);
+--
+void finishFrame(void);
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>999</y>
+      <w>78</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+LogicSystem
+--
+
+void processIncomingMessage()
+--
+void finishFrameParallel(void);
+--
+
+
+
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>387</x>
+      <y>966</y>
+      <w>9</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2a44a0</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>507</x>
+      <y>915</y>
+      <w>81</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+LogicGameState
+--
+
+
+
+void update(float timeSinceLast)
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>918</y>
+      <w>87</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=-
+fg=cyan</panel_attributes>
+    <additional_attributes>270.0;10.0;170.0;10.0;170.0;430.0;10.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>351</x>
+      <y>840</y>
+      <w>78</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+MessageQueueSystem
+--
+
+processIncomingMessages(){
+  processIncomingMessage()
+}
+
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>852</y>
+      <w>24</w>
+      <h>87</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;270.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>387</x>
+      <y>888</y>
+      <w>9</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>339</x>
+      <y>855</y>
+      <w>117</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>300.0;10.0;370.0;10.0;370.0;410.0;10.0;410.0;10.0;530.0;40.0;530.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>507</x>
+      <y>843</y>
+      <w>81</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+GameState
+--
+
+void finishFrameParallel(void){}
+--
+void finishFrame(void) {}
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>888</y>
+      <w>9</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>936</y>
+      <w>87</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;10.0;220.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>855</y>
+      <w>87</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;10.0;120.0;10.0;120.0;300.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>426</x>
+      <y>861</y>
+      <w>87</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;10.0;140.0;10.0;140.0;300.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>333</x>
+      <y>942</y>
+      <w>117</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>320.0;260.0;370.0;260.0;370.0;140.0;10.0;140.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>291</x>
+      <y>831</y>
+      <w>66</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;340.0;90.0;340.0;90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>291</x>
+      <y>840</y>
+      <w>66</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;330.0;70.0;330.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>291</x>
+      <y>849</y>
+      <w>66</w>
+      <h>177</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;570.0;50.0;570.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>291</x>
+      <y>861</y>
+      <w>66</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;300.0;30.0;300.0;30.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>204</x>
+      <y>1068</y>
+      <w>399</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>GraphicThread
+bg=#f3e1ff
+--
+halign=left
+
+
+layer=-2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>357</x>
+      <y>1194</y>
+      <w>78</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+BaseSystem
+--
+
+void beginFrameParallel(void);
+--
+void update( float timeSinceLast );
+--
+void finishFrameParallel(void);
+--
+void finishFrame(void);
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>258</x>
+      <y>1269</y>
+      <w>81</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+GraphicSystem
+--
+
+void processIncomingMessage()
+--
+void update( float timeSinceLast );
+
+
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>303</x>
+      <y>1242</y>
+      <w>102</w>
+      <h>33</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2a44a0</panel_attributes>
+    <additional_attributes>320.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>1269</y>
+      <w>147</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-
+fg=cyan</panel_attributes>
+    <additional_attributes>470.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>477</x>
+      <y>1266</y>
+      <w>81</w>
+      <h>57</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+GraphicsGameState
+--
+
+
+
+--
+void update(float timeSinceLast)
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>357</x>
+      <y>1131</y>
+      <w>78</w>
+      <h>51</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+MessageQueueSystem
+--
+
+processIncomingMessages(){
+  processIncomingMessage()
+}
+
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>1143</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;220.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>393</x>
+      <y>1179</y>
+      <w>9</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>234</x>
+      <y>1149</y>
+      <w>129</w>
+      <h>141</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>410.0;10.0;10.0;10.0;10.0;450.0;80.0;450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>1212</y>
+      <w>51</w>
+      <h>87</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;270.0;60.0;270.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>477</x>
+      <y>1149</y>
+      <w>81</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+GameState
+--
+
+void finishFrameParallel(void){}
+--
+void finishFrame(void) {}
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>513</x>
+      <y>1254</y>
+      <w>9</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2aa037
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>477</x>
+      <y>1209</y>
+      <w>81</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+TutorialGameState
+--
+
+void finishFrameParallel(void){}
+
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>513</x>
+      <y>1194</y>
+      <w>9</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>1212</y>
+      <w>27</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;260.0;40.0;260.0;40.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>1161</y>
+      <w>51</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;100.0;10.0;100.0;200.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>432</x>
+      <y>1167</y>
+      <w>51</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;120.0;10.0;120.0;200.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>1095</y>
+      <w>39</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;380.0;80.0;380.0;80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>228</x>
+      <y>1104</y>
+      <w>120</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;620.0;10.0;620.0;10.0;140.0;380.0;140.0;380.0;10.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>324</x>
+      <y>1116</y>
+      <w>39</w>
+      <h>111</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;350.0;40.0;350.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

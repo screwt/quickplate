@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>40</x>
+      <y>930</y>
+      <w>370</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+bg=white
+transparency=0
+main
+--
+renderThreadApp
+  graphicsSystem-&gt;beginFrameParallel();
+  --
+  graphicsSystem-&gt;update( timeSinceLast );
+  --
+  graphicsSystem-&gt;finishFrameParallel();
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>50</y>
+      <w>270</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+main
+--
+logicThread
+  logicSystem-&gt;beginFrameParallel();
+  --
+  logicSystem-&gt;update(cFrametime);
+  --
+  logicSystem-&gt;finishFrameParallel();
+  --
+  logicSystem-&gt;finishFrame();
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>1330</w>
+      <h>860</h>
+    </coordinates>
+    <panel_attributes>LogicThread
+--
+halign=left
+bg=#e1ffe7
+
+layer=-2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>380</y>
+      <w>260</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+*BaseSystem*
+--
+
+void beginFrameParallel(void);
+--
+void update( float timeSinceLast );
+--
+void finishFrameParallel(void);
+--
+void finishFrame(void);
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>650</y>
+      <w>260</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+LogicSystem
+--
+
+void processIncomingMessage()
+--
+void finishFrameParallel(void);
+--
+
+
+
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>540</y>
+      <w>30</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2a44a0</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1010</x>
+      <y>370</y>
+      <w>270</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+LogicGameState
+--
+
+
+
+void update(float timeSinceLast)
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>380</y>
+      <w>290</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes>lt=-
+fg=cyan</panel_attributes>
+    <additional_attributes>270.0;10.0;170.0;10.0;170.0;430.0;10.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>120</y>
+      <w>260</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+MessageQueueSystem
+--
+
+processIncomingMessages(){
+  processIncomingMessage()
+}
+
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>160</y>
+      <w>80</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;270.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>280</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>450</x>
+      <y>170</y>
+      <w>390</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>300.0;10.0;370.0;10.0;370.0;410.0;10.0;410.0;10.0;530.0;40.0;530.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1010</x>
+      <y>130</y>
+      <w>270</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+GameState
+--
+
+void finishFrameParallel(void){}
+--
+void finishFrame(void) {}
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>280</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>440</y>
+      <w>290</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;10.0;220.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>170</y>
+      <w>290</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;10.0;120.0;10.0;120.0;300.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>740</x>
+      <y>190</y>
+      <w>290</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;10.0;140.0;10.0;140.0;300.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>460</y>
+      <w>390</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>320.0;260.0;370.0;260.0;370.0;140.0;10.0;140.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>90</y>
+      <w>220</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;340.0;90.0;340.0;90.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>120</y>
+      <w>220</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;330.0;70.0;330.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>150</y>
+      <w>220</w>
+      <h>590</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;570.0;50.0;570.0;50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>190</y>
+      <w>220</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;300.0;30.0;300.0;30.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>0</x>
+      <y>880</y>
+      <w>1330</w>
+      <h>900</h>
+    </coordinates>
+    <panel_attributes>GraphicThread
+bg=#f3e1ff
+--
+halign=left
+
+
+layer=-2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>1300</y>
+      <w>260</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+BaseSystem
+--
+
+void beginFrameParallel(void);
+--
+void update( float timeSinceLast );
+--
+void finishFrameParallel(void);
+--
+void finishFrame(void);
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>180</x>
+      <y>1550</y>
+      <w>270</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+GraphicSystem
+--
+
+void processIncomingMessage()
+--
+void update( float timeSinceLast );
+
+
+
+--
+mCurrentGameState</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>1460</y>
+      <w>340</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2a44a0</panel_attributes>
+    <additional_attributes>320.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>1550</y>
+      <w>490</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+fg=cyan</panel_attributes>
+    <additional_attributes>470.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>1540</y>
+      <w>270</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+GraphicsGameState
+--
+
+
+
+--
+void update(float timeSinceLast)
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>1090</y>
+      <w>260</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+transparency=0
+MessageQueueSystem
+--
+
+processIncomingMessages(){
+  processIncomingMessage()
+}
+
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>1130</y>
+      <w>80</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;220.0;10.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>1250</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>fg=#2a44a0
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>1150</y>
+      <w>430</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>410.0;10.0;10.0;10.0;10.0;450.0;80.0;450.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>1360</y>
+      <w>170</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;270.0;60.0;270.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>1150</y>
+      <w>270</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+GameState
+--
+
+void finishFrameParallel(void){}
+--
+void finishFrame(void) {}
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>1500</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=#2aa037
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>910</x>
+      <y>1350</y>
+      <w>270</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+transparency=0
+TutorialGameState
+--
+
+
+
+
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1030</x>
+      <y>1300</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>fg=#2aa037
+lt=&lt;.
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>1360</y>
+      <w>90</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;260.0;40.0;260.0;40.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>1190</y>
+      <w>170</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;100.0;10.0;100.0;200.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>1210</y>
+      <w>170</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;10.0;120.0;10.0;120.0;200.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>970</y>
+      <w>130</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;380.0;80.0;380.0;80.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>80</x>
+      <y>1000</y>
+      <w>400</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>100.0;620.0;10.0;620.0;10.0;140.0;380.0;140.0;380.0;10.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>1040</y>
+      <w>130</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;350.0;40.0;350.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
