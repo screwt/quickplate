@@ -6,6 +6,17 @@
 
 ## ScreenShots
 
+## RoadMAP
+
+ - [x] : Load a simple scene exported from blender
+ - [x] : Allow switching to camera defined in blender
+ - [ ] : Embed [CEF](https://bitbucket.org/chromiumembedded/cef/src/master/), the build the HUD
+ - [ ] : Allow multiple scene loading (switchable scene)
+ - [ ] : Allow character loading from blender (Blender Custom attribute make it a character)
+ - [ ] : Allow character controlling
+ - [ ] : Add joypad support
+
+
 ## Binary Releases
 
 ## Build instructions
